@@ -1,0 +1,85 @@
+.application-Form{
+    height: 100vh;
+    display :flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.application{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 5px;
+}
+
+.application-title h2{
+    font-weight: 600;
+    color: #841212;
+    font-size: 40px;
+    margin-bottom: 5px;
+}
+
+.application-title hr{
+    border: none;
+    width: 120px;
+    height: 5px;
+    background-color: #841212;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.application-inputs{
+    width: 400px;
+    height: 30px;
+    border: none;
+    outline: none;
+    padding-left: 2px;
+    font-weight: 500;
+    color: #666;
+    border-radius: 15px;
+}
+
+.application2-inputs{
+    margin: 10px;
+}
+.application-inputs:focus{
+    border: 2px solid #ff994f;
+}
+
+.application-input::placeholder{
+    color: #a9a9a9;
+}
+
+.application button{
+    display: flex;
+    align-items: center;
+    padding: 15px 30px;
+    font-size: 16px;
+    color: white;
+    gap: 10px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(270deg, #001164, #030f93);
+    cursor: pointer;
+}
+
+
+.contact-right img{
+    width: 500px;
+}
+
+.application-img img{
+    width: 600px;
+    border-radius: 100%;
+    opacity: 50%;
+}
+
+@media (max-width: 800px){
+    .application-inputs{
+        width: 80vw;
+    }
+    .application-img{
+        display: none;
+    }
+}
+

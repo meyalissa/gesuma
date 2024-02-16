@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GESUMA/JoinUs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <section class="header">
+        <header>
+            <nav>
+                <a href="index.html"><img src="image/logogesuma.png"></a>
+                <h1> Gerakan Sukarelawan Mahasiswa (GESUMA)  <br><span>UITM Cawangan Pahang, Raub</span> </h1>
+                <div class="nav-links" id="navLinks">
+                    <i class="fa fa-times" onclick="hideMenu()"></i>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="">About Us</a></li>
+                        <li><a href="joinus.html">Join Us</a></li>
+                        <li><a href="">Our Work</a></li>
+                        <li><a href="">Support</a></li>
+                    </ul>
+                </div>
+                <i class="fa fa-bars" onclick="showMenu()"></i>
+            </nav>
+        </header>
+<!-- START NEW PAGES -->
+
+        <div class="application-Form">
+            <div class="application-img">
+                <img src="image/coperate.jpg" alt="">
+            </div>
+            <form name="submit-to-google-sheet" class="application">
+                <div class="application-title">
+                    <h2>Join Us Now</h2>
+                    <hr>
+    
+                </div>
+                
+                <label>Nama Penuh: </label>
+                <input type="text" name="nama" class="application-inputs" required>
+                <br><label>Nombor Matrik: </label>
+                <input type="matrics" name="matrics" class="application-inputs" required>
+                
+                <br>
+                <label>Kod Program: </label>
+                <dir class="application-inputs">
+                    <input type="radio" name="program" value="AM110" class="application2-inputs" required><label>AM110</label>
+                    <input type="radio" name="program" value="BA111" class="application2-inputs" required><label>BA111</label>
+                    <input type="radio" name="program" value="BA119" class="application2-inputs" required><label>BA119</label>
+                    <br><input type="radio" name="program" value="CDCS110" class="application2-inputs" required><label>CDCS110</label>
+                    <input type="radio" name="program" value="CDCS111" class="application2-inputs" required><label>CDCS111</label>
+
+                </dir>
+                
+                <br><br>
+                <label>Semester: </label>
+                <dir class="application-inputs">
+                    <input type="radio" name="semester" value="1" class="application2-inputs" required><label>1</label>
+                    <input type="radio" name="semester" value="2" class="application2-inputs" required><label>2</label>
+                    <input type="radio" name="semester" value="3" class="application2-inputs" required><label>3</label>
+                
+                </dir>
+                <br>
+                <label>Nombor Telefon: </label>
+                <input type="text" name="phonenumb" class="application-inputs" required>
+                
+                <br>
+                <button type="submit">Submit</button>
+            
+                <span id="success"></span>
+            </form>
+
+            
+        </div>
+
+
+    </section>
+
+    <!-- JAVASCRIPT FOR TOGGLE MENU -->
+    <script>
+
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwI8HaJMn8UsK7gIELRWl5YcUHzBs9blo2uLW0_RPk82v_SN81-zqDtCfxZPbhkuGb8fQ/exec'
+        const form = document.forms['submit-to-google-sheet']
+
+        form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+                    success.innerHTML="data successfully submited!";
+
+                    setTimeout(function()
+                    {
+                        success.innerHTML="";
+                    }, 5000)
+                    form.reset();
+                })
+
+                .catch(error => console.error('Error!', error.message))
+            })
+        
+    
+        var navLinks = document.getElementById("navLinks");
+        function showMenu(){
+            navLinks.style.right = "0";
+        }
+        function hideMenu(){
+            navLinks.style.right = "-200px";
+        }
+    </script>
+</body>
+</html>
